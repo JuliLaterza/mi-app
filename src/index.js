@@ -13,11 +13,40 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const component = React.createElement('h1',null,"Hi"); //Creación de un componente de React.
+//const component = React.createElement('h1',null,"Hi"); //Creación de un componente de React.
 
-const x = () => <p>Hola Mundo!</p> //Elemento funcional que retorna contenido JSX.
+const Li = ({ children, estado, edad=19, casa=true }) => {
+    console.log(edad,casa)
+    if (casa) {
+        return <li> {children} estoy {estado}</li>
+    } else {
+        return <li> {children} estoy {edad}</li>
+    }
+    
+} 
 
-root.render(x()); //Con este metodo renderizamos un elemento.
+const X = () => <ul>
+    <Li 
+    estado = {'feliz'}
+    casa = {false}
+    edad = {20}
+    >
+        Chanchito
+    </Li>
+    <Li estado = {'triste'}>
+        Chanchito
+    </Li>
+    <Li estado = {'borracho'} casa = {false}>Chanchito</Li>
+</ul> //Elemento funcional que retorna contenido JSX.
+
+
+
+
+
+
+root.render(X()); //Con este metodo renderizamos un elemento.
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
